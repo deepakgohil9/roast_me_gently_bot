@@ -16,7 +16,7 @@ const roast = async (message) => {
 		"style": process.env.STYLE
 	})
 
-	let headers = { "Content-Type": "application/json" }
+	let headers = { "Content-Type": "application/json", "cookie": process.env.cookie }
 	console.log(process.env.API_URL)
 	console.log(raw)
 	let roast_response = await fetch(process.env.API_URL, { method: 'POST', headers: headers, body: raw })
