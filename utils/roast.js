@@ -16,13 +16,10 @@ const roast = async (message) => {
 		"style": process.env.STYLE
 	})
 
-	let headers = { "Content-Type": "application/json", "cookie": process.env.cookie }
-	console.log(process.env.API_URL)
-	console.log(raw)
+	let headers = { "Content-Type": "application/json" }
+
 	let roast_response = await fetch(process.env.API_URL, { method: 'POST', headers: headers, body: raw })
-	console.log(roast_response.status)
-	roast_response = await roast_response.text()
-	console.log(JSON.stringify(roast_response))
+	roast_response = await roast_response.json()
 	return roast_response
 }
 
